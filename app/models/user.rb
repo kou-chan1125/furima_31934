@@ -6,21 +6,23 @@ class User < ApplicationRecord
 
   # アソシエーションの記入
   has_many :items
-  has_many :orders
+  # has_many :orders   ordersテーブルとアソシエーションを組む際に記述する
 
   # バリデーションの記入
-  validates :nickname, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, format: { with: /(?=.*?[a-z])(?=.*?\d)[a-z\d]/i }
+  with_options presence: true do
+    validates :nickname
+    validates :email,uniqueness: true
+    validates :password,format: { with: /(?=.*?[a-z])(?=.*?\d)[a-z\d]/i }
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
-    validates :last_name
-    validates :first_name
-  end
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
+      validates :last_name
+      validates :first_name
+    end
 
-  with_options presence: true, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/ } do
-    validates :last_name_kana
-    validates :first_name_kana
+    with_options presence: true, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/ } do
+      validates :last_name_kana
+      validates :first_name_kana
+    end
+      validates :birth_day
   end
-  validates :birth_day, presence: true
 end

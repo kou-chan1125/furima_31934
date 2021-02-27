@@ -115,6 +115,16 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
+      it 'last_name_kanaが半角カタカナで入力されていると登録出来ない' do
+        @user.last_name_kana = 'ﾃｽﾄ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Last name kana is invalid')
+      end
+      it 'First_name_kanaが半角カタカナで入力されていると登録出来ない' do
+        @user.first_name_kana = 'ﾃｽﾄ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
+      end
     end
   end
 end
