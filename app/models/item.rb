@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   #バリデーションの記入
   with_options presence: true do
-    validates :price_name
+    validates :prise_name
     validates :description
 
 
@@ -28,5 +28,7 @@ class Item < ApplicationRecord
 
     end
      validates :price
+     validates :image
+
   end
 end
