@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :user
 
   #activ storage 画像ファイルの紐付け
-  # has_one_attached :image
+  has_one_attached :image
 
   #バリデーションの記入
   with_options presence: true do
