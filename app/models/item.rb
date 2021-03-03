@@ -15,8 +15,8 @@ class Item < ApplicationRecord
 
   #バリデーションの記入
   with_options presence: true do
-    validates :prise_name
-    validates :description
+    validates :prise_name, length: {maximum: 10 }
+    validates :description, length: {maximum: 1000}
 
 
     with_options numericality: { other_than: 1 } do
@@ -27,7 +27,9 @@ class Item < ApplicationRecord
       validates :deli_day_id
 
     end
-     validates :price
+    #  validates :price, numericality: { greater_than_or_equal_to: 300 || less_than_or_equal_to: 9999999}
+    validates :price, numericality: { :greater_than => 300}
+    validates :price, numericality: {:less_than_or_equal_to => 9999999}
      validates :image
 
   end
