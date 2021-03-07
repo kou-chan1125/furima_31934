@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Prise name is too long (maximum is 10 characters)')
       end
       it 'descriptionが1000文字より多いとき' do
-        @item.description = (Faker::Base.regexify("[テスト]{1001}"))
+        @item.description = (Faker::Base.regexify('[テスト]{1001}'))
         @item.valid?
         expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
@@ -79,11 +79,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
-      it "ユーザーが紐付いていなければ投稿できない" do
+      it 'ユーザーが紐付いていなければ投稿できない' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
-    end
+      end
     end
   end
 end
