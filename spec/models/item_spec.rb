@@ -39,6 +39,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Deli fee can't be blank")
       end
+      it 'deli_day_idが空のとき' do
+        @item.deli_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Deli day can't be blank")
+      end
       it 'area_idが空のとき' do
         @item.area_id = nil
         @item.valid?
@@ -65,12 +70,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
       it 'priceが300より少ないとき' do
-        @item.price = '100'
+        @item.price = 100
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
       it 'priceが9999999より多いとき' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
@@ -84,6 +89,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+      it 'category_idが1の時保存できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it 'condition_idが1の時保存できない' do
+        @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
+      end
+      it 'deli_fee_idが1の時保存できない' do
+        @item.deli_fee_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Deli fee must be other than 1')
+      end
+      it 'area_idが1の時保存できない' do
+        @item.area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
+      end
+      it 'deli_day_idが1の時保存できない' do
+        @item.deli_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Deli day must be other than 1')
+      end      
     end
   end
 end
