@@ -70,14 +70,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
       it 'priceが300より少ないとき' do
-        @item.price = 100
+        @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be greater than 300')
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが9999999より多いとき' do
         @item.price = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it 'priceが半角数字でないとき' do
         @item.price = 'test'
