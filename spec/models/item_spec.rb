@@ -77,7 +77,7 @@ RSpec.describe Item, type: :model do
       it 'priceが9999999より多いとき' do
         @item.price = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
       end
       it 'priceが半角数字でないとき' do
         @item.price = 'test'
@@ -114,6 +114,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Deli day must be other than 1')
       end      
+      it 'priceが半角英数字混合では出品できない' do
+        @item.price = '111test'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'priceが全角文字では出品できない' do
+        @item.price = '１１１１'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end            
     end
   end
 end

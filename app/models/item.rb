@@ -25,8 +25,9 @@ class Item < ApplicationRecord
       validates :area_id
       validates :deli_day_id
     end
-    validates :price, numericality: { greater_than: 300 }
-    validates :price, numericality: { less_than_or_equal_to: 9_999_999 }
+
+    validates :price, numericality: { greater_than: 300, less_than: 9999999 }
+    # validates :price, numericality: { less_than_or_equal_to: 9_999_999 }
     validates :image
   end
 end
