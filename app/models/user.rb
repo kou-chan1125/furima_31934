@@ -11,8 +11,8 @@ class User < ApplicationRecord
   # バリデーションの記入
   with_options presence: true do
     validates :nickname
-    validates :email,uniqueness: true
-    validates :password,format: { with: /(?=.*?[a-z])(?=.*?\d)[a-z\d]/i }
+    validates :email, uniqueness: true
+    validates :password, format: { with: /(?=.*?[a-z])(?=.*?\d)[a-z\d]/i }
 
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
       validates :last_name
@@ -23,6 +23,6 @@ class User < ApplicationRecord
       validates :last_name_kana
       validates :first_name_kana
     end
-      validates :birth_day
+    validates :birth_day
   end
 end
