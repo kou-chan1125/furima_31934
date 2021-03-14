@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :deli_fee
   belongs_to :area
   belongs_to :deli_day
+  has_one :order
 
   belongs_to :user
 
@@ -26,7 +27,7 @@ class Item < ApplicationRecord
       validates :deli_day_id
     end
 
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
     validates :image
   end
 end

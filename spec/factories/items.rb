@@ -7,7 +7,7 @@ FactoryBot.define do
     deli_fee_id             { 2 }
     area_id                 { 2 }
     deli_day_id             { 2 }
-    price                   { 11111 }
+    price                   { 11_111 }
     association :user
 
     after(:build) do |item|
