@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-16T12:57:49.015Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="QMP4C2OIn5pqymIyyQln" version="14.2.4" type="embed">
+<mxfile>
     <diagram id="esaFtMQE0i9fCTPGfJxp" name="ページ1">
         <mxGraphModel dx="1016" dy="710" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
@@ -124,11 +124,6 @@
                         <mxPoint x="480" y="166" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="85" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="200.00000000000023" y="340" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="85" value="Orders" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="40" y="360" width="320" height="270" as="geometry"/>
                 </mxCell>
@@ -234,10 +229,10 @@
                 <mxCell id="124" value="・condition _id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="1" vertex="1">
                     <mxGeometry x="511" y="172" width="290" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="125" value="・building_name       " style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
+                <mxCell id="125" value="・building_name       " style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="1" vertex="1">
                     <mxGeometry x="511" y="596" width="290" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="126" value="・order" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
+                <mxCell id="126" value="・order" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="1" vertex="1">
                     <mxGeometry x="511" y="635" width="329" height="43" as="geometry"/>
                 </mxCell>
             </root>
