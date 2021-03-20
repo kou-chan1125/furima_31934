@@ -142,7 +142,7 @@
               </div>
               <div class='item-info'>
                 <h3 class='item-name'>
-                  <%= item.prise_name %>
+                  <%= link_to item.prise_name, item_path(item) %>
                 </h3>
                 <div class='item-price'>
                   <span><%= item.price %><br>(税込み)</span>
