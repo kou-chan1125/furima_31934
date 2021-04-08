@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # アソシエーションの記入
   has_many :items
-  # has_many :orders   ordersテーブルとアソシエーションを組む際に記述する
+  has_many :orders
 
   # バリデーションの記入
   with_options presence: true do
