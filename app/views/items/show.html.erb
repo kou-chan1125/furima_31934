@@ -25,7 +25,6 @@
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合 %>
     <% unless @item.order.present? %>
       <% if user_signed_in? %>
         <% if current_user == @item.user %>
@@ -33,7 +32,6 @@
           <p class="or-text">or</p>
           <%= link_to "削除", item_path(@item), method: :delete, class:"item-destroy" %>
         <% else %>
-      <%# 商品が売れていない場合 %>
           <% unless @item.order.present? %>
             <%= link_to "購入画面に進む", "/items/#{@item.id}/orders" ,class:"item-red-btn"%>
           <% end %>

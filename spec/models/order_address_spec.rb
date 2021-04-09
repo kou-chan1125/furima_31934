@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    @order_address = FactoryBot.build(:order_address)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @order_address = FactoryBot.build(:order_address,user_id: @user.id, item_id: @item.id)
+    sleep 0.1
   end
 
   describe '商品出品機能' do
@@ -11,12 +14,21 @@ RSpec.describe OrderAddress, type: :model do
       tel_num,tokenの情報が正しく入力されている' do
         expect(@order_address).to be_valid
       end
+      it 'building_nameが空でも保存できる' do
+        @order_address.building_name = ""
+        expect(@order_address).to be_valid
+      end
     end
     context '商品購入がうまく行かないとき' do
       it 'user_idが空のとき' do
         @order_address.user_id = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空のとき' do
+        @order_address.item_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
       it 'postal_codeが空のとき' do
         @order_address.postal_code = ''
