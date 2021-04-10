@@ -70,10 +70,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Municipality is invalid. Input full-width characters.')
       end
-      it 'building_nameは空でも保存できること' do
-        @order_address.building_name = ''
-        expect(@order_address).to be_valid
-      end
       it 'tel_numが全角では保存できない' do
         @order_address.tel_num = '０１２３４５６７８９０'
         @order_address.valid?
