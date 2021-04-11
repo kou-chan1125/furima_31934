@@ -12,7 +12,7 @@ class OrderAddress
     validates :house_num
     validates :tel_num, format: { with: /\A\d{10,11}\z/ }
     validates :token
-    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 
   def save
